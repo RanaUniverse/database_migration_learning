@@ -26,10 +26,12 @@ def create_hero():
     with Session(engine) as session:
         session.add(hero_obj)
         session.commit()
+        session.refresh(hero_obj)
+        print(f"Hero has been inserted, {hero_obj}")
 
 
 if __name__ == "__main__":
     create_db_and_tables()
-    how_many = 10
+    how_many = 3
     for _ in range(how_many):
         create_hero()

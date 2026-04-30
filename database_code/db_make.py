@@ -11,19 +11,19 @@ from sqlmodel import (
     SQLModel,
 )
 
-sqlite_file_name = "zzz_database.db"
-DATABASE_URL = f"sqlite:///{sqlite_file_name}"
+# sqlite_file_name = "zzz_database.db"
+# DATABASE_URL = f"sqlite:///{sqlite_file_name}"
 
 
-# DB_USERNAME = "rana"
-# DB_PASSWORD = "abc"
-# DB_HOST = "localhost"
-# DB_PORT = "5432"
-# DB_NAME = "hero1"
+DB_USERNAME = "rana"
+DB_PASSWORD = "abc"
+DB_HOST = "localhost"
+DB_PORT = "5432"
+DB_NAME = "hero1"
 
-# DATABASE_URL = (
-#     f"postgresql://{DB_USERNAME}:{DB_PASSWORD}" f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-# )
+DATABASE_URL = (
+    f"postgresql://{DB_USERNAME}:{DB_PASSWORD}" f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+)
 
 
 engine = create_engine(url=DATABASE_URL)
