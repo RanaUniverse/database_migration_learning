@@ -1,0 +1,12 @@
+[project]
+name = "database-migration-learning"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14.0"
+dependencies = [
+    "alembic>=1.18.4",
+    "faker>=40.15.0",
+    "psycopg2-binary>=2.9.12",
+    "sqlmodel>=0.0.38",
+]
