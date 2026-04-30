@@ -12,19 +12,24 @@ from database_code.db_make import engine, create_db_and_tables
 from database_code.models import HeroModel
 
 
+import fake_data
+
+
 def create_hero():
-    hero_1 = HeroModel(name="Deadpond", secret_name="Dive Wilson")
-    hero_2 = HeroModel(name="Spider-Boy", secret_name="Pedro Parqueador")
-    hero_3 = HeroModel(name="Rusty-Man", secret_name="Tommy Sharp", age=48)
+
+    hero_obj = HeroModel(
+        name=fake_data.get_a_full_name(),
+        secret_name=fake_data.one_word(),
+        age=fake_data.age_int(),
+    )
 
     with Session(engine) as session:
-        session.add(hero_1)
-        session.add(hero_2)
-        session.add(hero_3)
-
+        session.add(hero_obj)
         session.commit()
 
 
-if __name__=="__main__":
+if __name__ == "__main__":
     create_db_and_tables()
-    create_hero()
+    how_many = 10
+    for _ in range(how_many):
+        create_hero()
