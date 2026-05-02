@@ -31,7 +31,7 @@ def create_hero():
 
 
 if __name__ == "__main__":
-    create_db_and_tables()
+    # create_db_and_tables()
     how_many = 3
     for _ in range(how_many):
         create_hero()
