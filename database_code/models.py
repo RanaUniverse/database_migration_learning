@@ -3,6 +3,7 @@ here i will defines the tables in the form of class
 of sqlmodel
 """
 
+from typing import Optional
 from sqlmodel import (
     Field,
     SQLModel,
@@ -20,7 +21,7 @@ class HeroModel(SQLModel, table=True):
     phone: str | None = None
 
     team_id: int | None = Field(default=None, foreign_key="team_data.id_")
-    team: "TeamModel | None " = Relationship(back_populates="heroes")
+    team: Optional["TeamModel"] = Relationship(back_populates="heroes")
 
 
 class TeamModel(SQLModel, table=True):
@@ -30,4 +31,4 @@ class TeamModel(SQLModel, table=True):
     name: str
     headquarters: str
 
-    heros: list[HeroModel] = Relationship(back_populates="team")
+    heroes: list[HeroModel] = Relationship(back_populates="team")

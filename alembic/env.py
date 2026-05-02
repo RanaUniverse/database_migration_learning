@@ -12,7 +12,7 @@ from sqlmodel import SQLModel
 from database_code.db_make import DATABASE_URL
 
 # here i need to import all the models i have in my code
-from database_code.models import HeroModel  # type: ignore
+from database_code.models import HeroModel, TeamModel  # type: ignore
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

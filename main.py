@@ -8,7 +8,10 @@ and then insert the data into it
 from sqlmodel import Session
 
 
-from database_code.db_make import engine
+from database_code.db_make import (
+    engine,
+    # create_db_and_tables,
+)
 from database_code.models import HeroModel
 
 
