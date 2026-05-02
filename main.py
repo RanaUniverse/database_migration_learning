@@ -12,7 +12,14 @@ from database_code.db_make import (
     engine,
     # create_db_and_tables,
 )
-from database_code.models import HeroModel, TeamModel
+
+# from database_code.hero_model import HeroModel
+# from database_code.team_model import TeamModel
+
+from database_code import (
+    HeroModel,
+    TeamModel,
+)
 
 
 import fake_data

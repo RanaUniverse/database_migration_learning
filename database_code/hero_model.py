@@ -1,14 +1,22 @@
 """
-here i will defines the tables in the form of class
-of sqlmodel
+database_code/hero_model.py
+Here i will write the code related to the hero table
 """
 
-from typing import Optional
+from typing import (
+    # on execution time this is false but for type checking true
+    TYPE_CHECKING,
+    Optional,
+)
+
 from sqlmodel import (
     Field,
     SQLModel,
     Relationship,
 )
+
+if TYPE_CHECKING:
+    from .team_model import TeamModel
 
 
 class HeroModel(SQLModel, table=True):
@@ -22,13 +30,3 @@ class HeroModel(SQLModel, table=True):
 
     team_id: int | None = Field(default=None, foreign_key="team_data.id_")
     team: Optional["TeamModel"] = Relationship(back_populates="heroes")
-
-
-class TeamModel(SQLModel, table=True):
-    __tablename__ = "team_data"  # type: ignore
-
-    id_: int = Field(default=None, primary_key=True)
-    name: str
-    headquarters: str
-
-    heroes: list[HeroModel] = Relationship(back_populates="team")

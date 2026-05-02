@@ -10,3 +10,4 @@ wheels/
 .venv
 
 z*.db
+z*py
