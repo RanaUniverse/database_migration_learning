@@ -47,17 +47,24 @@ def create_hero_and_team():
             name=fake_data.get_a_full_name(),
             headquarters=fake_data.one_word(),
         )
-        hero_obj = HeroModel(
+        hero_obj_1 = HeroModel(
             name=fake_data.get_a_full_name(),
             secret_name=fake_data.one_word(),
             age=fake_data.age_int(),
-            phone="1234566741",
+            phone="111111111",
         )
-        hero_obj.team = team_obj
-        session.add(hero_obj)
+        hero_obj_2 = HeroModel(
+            name=fake_data.get_a_full_name(),
+            secret_name=fake_data.one_word(),
+            age=fake_data.age_int(),
+            phone="222222222",
+        )
+        team_obj.heroes.append(hero_obj_1)
+        team_obj.heroes.append(hero_obj_2)
+        session.add(team_obj)
         session.commit()
-        session.refresh(hero_obj)
-        print("Hero details are", hero_obj)
+        session.refresh(team_obj)
+        print("Hero details are", team_obj.heroes)
 
 
 if __name__ == "__main__":
