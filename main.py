@@ -5,7 +5,7 @@ will generate the database table if not exists
 and then insert the data into it
 """
 
-from sqlmodel import Session
+from sqlmodel import Session, select
 
 
 from database_code.db_make import (
@@ -67,9 +67,38 @@ def create_hero_and_team():
         print("Hero details are", team_obj.heroes)
 
 
+def delete_a_hero_obj(hero_id: int):
+    """
+    i will pass the hero id as int and it will try to delte this form teh database
+    """
+    with Session(engine) as session:
+        statement = select(HeroModel).where(HeroModel.id_ == hero_id)
+        results = session.exec(statement)
+        hero = results.one()
+        session.delete(hero)
+        session.commit()
+        print(f"Hero with the id of {hero_id} has been deleted from the database")
+
+
+def delete_a_team_obj(team_id: int):
+    """
+    i will pass the team id of the autoindex column
+    and it will try to delete the row form the table
+    """
+    with Session(engine) as session:
+        statement = select(TeamModel).where(TeamModel.id_ == team_id)
+        results = session.exec(statement)
+        team_row = results.one()
+        session.delete(team_row)
+        session.commit()
+        print(f"The temm row of the id of {team_id} has been deleted from teh database")
+
+
 if __name__ == "__main__":
     # create_db_and_tables()
-    how_many = 3
+    how_many = 0
     for _ in range(how_many):
         # create_hero()
         create_hero_and_team()
+    # delete_a_hero_obj(hero_id=73)
+    delete_a_team_obj(team_id=40)
