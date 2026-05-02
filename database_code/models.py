@@ -16,3 +16,4 @@ class HeroModel(SQLModel, table=True):
     name: str
     secret_name: str
     age: int | None = None
+    phone: str | None = None

@@ -21,6 +21,7 @@ def create_hero():
         name=fake_data.get_a_full_name(),
         secret_name=fake_data.one_word(),
         age=fake_data.age_int(),
+        phone="1234566741",
     )
 
     with Session(engine) as session:
