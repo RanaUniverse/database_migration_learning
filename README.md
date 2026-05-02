@@ -28,9 +28,13 @@ postgres=#
 
 # What to do with alembic,
 
-`alembic revision --autogenerate -m "initial migration first time`
+```
+alembic revision --autogenerate -m "initial migration first time"
+```
 Thsi will generate the some files in the alembic/versions/*py file.
-`alembic upgrade head`
+```
+alembic upgrade head
+```
 This will do changes the structer of the database and from then i will able to add new data in the database.
 
 then i will change the model in my code and do follow the upper things again.
