@@ -25,4 +25,7 @@ class TeamModel(SQLModel, table=True):
     name: str
     headquarters: str
 
-    heroes: list[HeroModel] = Relationship(back_populates="team")
+    heroes: list["HeroModel"] = Relationship(
+        back_populates="team",
+        cascade_delete=True,
+    )

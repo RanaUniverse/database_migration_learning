@@ -38,3 +38,13 @@ alembic upgrade head
 This will do changes the structer of the database and from then i will able to add new data in the database.
 
 then i will change the model in my code and do follow the upper things again.
+
+`cascade=true` this will apply in the Relationship field, but the `ondelete=``CASCADE`/`SET NULL`/`RESTRICT` > these are says for database level when anyone want to contact with real database only with sql query.
+Examples:
+    this is very risky to use ondelete=cascade
+```
+class Hero():
+    team_id:in|None = Field(default=None, foreign_key="team.id", ondelete="CASCADE")
+class Team(SQLModel, table=True):
+    heroes: list[Hero] = Relationship(cascade_delete=True)
+```

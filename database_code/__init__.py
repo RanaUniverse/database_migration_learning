@@ -11,5 +11,5 @@ from .team_model import TeamModel
 
 __all__ = [
     "HeroModel",
-    # "TeamModel",
+    "TeamModel",
 ]

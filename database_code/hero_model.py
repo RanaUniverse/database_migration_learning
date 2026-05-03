@@ -28,5 +28,9 @@ class HeroModel(SQLModel, table=True):
     age: int | None = None
     phone: str | None = None
 
-    team_id: int | None = Field(default=None, foreign_key="team_data.id_")
+    team_id: int | None = Field(
+        default=None,
+        foreign_key="team_data.id_",
+        ondelete="RESTRICT",
+    )
     team: Optional["TeamModel"] = Relationship(back_populates="heroes")

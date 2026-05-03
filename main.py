@@ -96,9 +96,9 @@ def delete_a_team_obj(team_id: int):
 
 if __name__ == "__main__":
     # create_db_and_tables()
-    how_many = 0
+    how_many = 5
     for _ in range(how_many):
         # create_hero()
         create_hero_and_team()
     # delete_a_hero_obj(hero_id=73)
-    delete_a_team_obj(team_id=40)
+    # delete_a_team_obj(team_id=3)
